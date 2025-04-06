@@ -8,14 +8,14 @@ if hist_button: # al hacer clic en el botón
     st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de vehículos')
     fig = px.histogram(car_data, x="odometer") 
     st.plotly_chart(fig, use_container_width=True) # mostrar un gráfico Plotly interactivo
-disp_button = st.button('Construir gráfico dispersión') # crear un botón
+
+disp_button = st.button('Construir gráfico de dispersión') # crear un botón
 if disp_button: # al hacer clic en el botón
     st.write('Creación de un gráfico de dispersión kilometraje vs precio')
     fig2 = px.scatter(car_data, x="odometer", y="price", color="model_year")
     st.plotly_chart(fig2, use_container_width=True) # mostrar un gráfico Plotly interactivo
 
 build_bubble = st.checkbox('Construir un diagrama de burbujas') # crear una casilla de verificación
-
 if build_bubble: # si la casilla de verificación está seleccionada
     st.write('Creación de un gráfico de burbujas')
     fig3 = px.scatter(car_data, x="model_year", y="condition", size="price", color="type", hover_name="model", size_max=60)
